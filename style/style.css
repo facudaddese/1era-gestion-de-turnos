@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,424;1,424&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* -------------------  */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* -------------------  */
+
+body {
+    font-family: "Noto Sans", sans-serif;
+}
+
+header h1 {
+    font-weight: 400;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+/* -------------------  */
+
+.getTurn {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.getTurn h2 {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-flex {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px;
+}
+
+.label {
+    padding: 10px;
+}
+
+input,
+.select {
+    padding: 7px;
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid rgb(131, 131, 131);
+}
+
+.select:hover,
+.hs:hover,
+.date:hover {
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none;
+}
+
+.btn {
+    margin: 7px 0;
+    padding: 10px;
+    background-color: #3498db;
+    color: rgb(252, 252, 252);
+    cursor: pointer;
+    border: none;
+    border-bottom: 3px solid #00548c;
+}
+
+.btn:hover {
+    background-color: #00548c;
+    border-bottom: 3px solid #3498db;
+}
+
+.turnos{
+    display: none;
+}
+
+/* -------------------  */
+
+footer {
+    text-align: center;
+    padding: 50px 0 10px 0;
+}
