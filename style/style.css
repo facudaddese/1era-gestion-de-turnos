@@ -39,6 +39,7 @@ header h1 {
 .getTurn h2 {
     font-weight: 500;
     color: #2c3e50;
+    margin-bottom: 10px;
 }
 
 .form-flex {
@@ -51,7 +52,7 @@ header h1 {
     padding: 10px;
 }
 
-input,
+.input,
 .select {
     padding: 7px;
     width: 300px;
@@ -59,14 +60,14 @@ input,
     border-bottom: 1px solid rgb(131, 131, 131);
 }
 
-.select:hover,
-.hs:hover,
-.date:hover {
+.select:hover {
     cursor: pointer;
 }
 
-input:focus {
+.input:focus {
     outline: none;
+    background: #ffffff;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 92%, rgba(0, 178, 214, 1) 100%);
 }
 
 .btn {
@@ -84,8 +85,15 @@ input:focus {
     border-bottom: 3px solid #3498db;
 }
 
-.turnos{
+.turnos {
     display: none;
+}
+
+.msjError {
+    padding: 3px;
+    color: #d8231a;
+    font-size: 13px;
+    width: 300px;
 }
 
 /* -------------------  */
