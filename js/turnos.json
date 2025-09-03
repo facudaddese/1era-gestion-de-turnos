@@ -1,0 +1,290 @@
+[
+    {
+        "medico": "Dr. Juan Pérez",
+        "fecha": "2025-09-02",
+        "hora": "09:00",
+        "especialidad": "Odontología"
+    },
+    {
+        "medico": "Dra. Laura Gómez",
+        "fecha": "2025-09-02",
+        "hora": "10:00",
+        "especialidad": "Odontología"
+    },
+    {
+        "medico": "Dr. Carlos Díaz",
+        "fecha": "2025-09-03",
+        "hora": "11:00",
+        "especialidad": "Odontología"
+    },
+    {
+        "medico": "Dra. Ana López",
+        "fecha": "2025-09-03",
+        "hora": "12:00",
+        "especialidad": "Odontología"
+    },
+    {
+        "medico": "Dr. Martín Ruiz",
+        "fecha": "2025-09-02",
+        "hora": "09:00",
+        "especialidad": "Kinesiología"
+    },
+    {
+        "medico": "Dra. Paula Fernández",
+        "fecha": "2025-09-02",
+        "hora": "10:00",
+        "especialidad": "Kinesiología"
+    },
+    {
+        "medico": "Dr. Ricardo Gómez",
+        "fecha": "2025-09-03",
+        "hora": "11:00",
+        "especialidad": "Kinesiología"
+    },
+    {
+        "medico": "Dra. Mariana Torres",
+        "fecha": "2025-09-03",
+        "hora": "12:00",
+        "especialidad": "Kinesiología"
+    },
+    {
+        "medico": "Dr. Pedro Sánchez",
+        "fecha": "2025-09-02",
+        "hora": "09:00",
+        "especialidad": "Clínica médica"
+    },
+    {
+        "medico": "Dra. Cecilia Morales",
+        "fecha": "2025-09-02",
+        "hora": "10:00",
+        "especialidad": "Clínica médica"
+    },
+    {
+        "medico": "Dr. Lucas Fernández",
+        "fecha": "2025-09-03",
+        "hora": "11:00",
+        "especialidad": "Clínica médica"
+    },
+    {
+        "medico": "Dra. Laura Ruiz",
+        "fecha": "2025-09-03",
+        "hora": "12:00",
+        "especialidad": "Clínica médica"
+    },
+    {
+        "medico": "Dr. Alejandro Díaz",
+        "fecha": "2025-09-02",
+        "hora": "09:00",
+        "especialidad": "Cardiología"
+    },
+    {
+        "medico": "Dra. Patricia Gómez",
+        "fecha": "2025-09-02",
+        "hora": "10:00",
+        "especialidad": "Cardiología"
+    },
+    {
+        "medico": "Dr. Javier López",
+        "fecha": "2025-09-03",
+        "hora": "11:00",
+        "especialidad": "Cardiología"
+    },
+    {
+        "medico": "Dra. Sandra Torres",
+        "fecha": "2025-09-03",
+        "hora": "12:00",
+        "especialidad": "Cardiología"
+    },
+    {
+        "medico": "Dr. Miguel Ruiz",
+        "fecha": "2025-09-02",
+        "hora": "09:00",
+        "especialidad": "Dermatología"
+    },
+    {
+        "medico": "Dra. Valeria Fernández",
+        "fecha": "2025-09-02",
+        "hora": "10:00",
+        "especialidad": "Dermatología"
+    },
+    {
+        "medico": "Dr. Andrés Morales",
+        "fecha": "2025-09-03",
+        "hora": "11:00",
+        "especialidad": "Dermatología"
+    },
+    {
+        "medico": "Dra. Karina Díaz",
+        "fecha": "2025-09-03",
+        "hora": "12:00",
+        "especialidad": "Dermatología"
+    },
+    {
+        "medico": "Dr. Roberto Gómez",
+        "fecha": "2025-09-02",
+        "hora": "09:00",
+        "especialidad": "Oftalmología"
+    },
+    {
+        "medico": "Dra. Natalia Torres",
+        "fecha": "2025-09-02",
+        "hora": "10:00",
+        "especialidad": "Oftalmología"
+    },
+    {
+        "medico": "Dr. Esteban Ruiz",
+        "fecha": "2025-09-03",
+        "hora": "11:00",
+        "especialidad": "Oftalmología"
+    },
+    {
+        "medico": "Dra. Mónica Fernández",
+        "fecha": "2025-09-03",
+        "hora": "12:00",
+        "especialidad": "Oftalmología"
+    },
+    {
+        "medico": "Dr. Jorge Díaz",
+        "fecha": "2025-09-02",
+        "hora": "09:00",
+        "especialidad": "Ginecología"
+    },
+    {
+        "medico": "Dra. Silvia Gómez",
+        "fecha": "2025-09-02",
+        "hora": "10:00",
+        "especialidad": "Ginecología"
+    },
+    {
+        "medico": "Dr. Fernando Ruiz",
+        "fecha": "2025-09-03",
+        "hora": "11:00",
+        "especialidad": "Ginecología"
+    },
+    {
+        "medico": "Dra. Laura Fernández",
+        "fecha": "2025-09-03",
+        "hora": "12:00",
+        "especialidad": "Ginecología"
+    },
+    {
+        "medico": "Dr. Ricardo Díaz",
+        "fecha": "2025-09-02",
+        "hora": "09:00",
+        "especialidad": "Traumatología"
+    },
+    {
+        "medico": "Dra. Patricia Torres",
+        "fecha": "2025-09-02",
+        "hora": "10:00",
+        "especialidad": "Traumatología"
+    },
+    {
+        "medico": "Dr. Andrés Gómez",
+        "fecha": "2025-09-03",
+        "hora": "11:00",
+        "especialidad": "Traumatología"
+    },
+    {
+        "medico": "Dra. Valeria Ruiz",
+        "fecha": "2025-09-03",
+        "hora": "12:00",
+        "especialidad": "Traumatología"
+    },
+    {
+        "medico": "Dr. Hugo Fernández",
+        "fecha": "2025-09-02",
+        "hora": "09:00",
+        "especialidad": "Pediatría"
+    },
+    {
+        "medico": "Dra. Claudia Díaz",
+        "fecha": "2025-09-02",
+        "hora": "10:00",
+        "especialidad": "Pediatría"
+    },
+    {
+        "medico": "Dr. Javier Torres",
+        "fecha": "2025-09-03",
+        "hora": "11:00",
+        "especialidad": "Pediatría"
+    },
+    {
+        "medico": "Dra. Mariana Gómez",
+        "fecha": "2025-09-03",
+        "hora": "12:00",
+        "especialidad": "Pediatría"
+    },
+    {
+        "medico": "Dr. Luis Ruiz",
+        "fecha": "2025-09-02",
+        "hora": "09:00",
+        "especialidad": "Neurología"
+    },
+    {
+        "medico": "Dra. Sandra Díaz",
+        "fecha": "2025-09-02",
+        "hora": "10:00",
+        "especialidad": "Neurología"
+    },
+    {
+        "medico": "Dr. Esteban Fernández",
+        "fecha": "2025-09-03",
+        "hora": "11:00",
+        "especialidad": "Neurología"
+    },
+    {
+        "medico": "Dra. Karina Gómez",
+        "fecha": "2025-09-03",
+        "hora": "12:00",
+        "especialidad": "Neurología"
+    },
+    {
+        "medico": "Dr. Martín Torres",
+        "fecha": "2025-09-02",
+        "hora": "09:00",
+        "especialidad": "Nutrición"
+    },
+    {
+        "medico": "Dra. Laura Ruiz",
+        "fecha": "2025-09-02",
+        "hora": "10:00",
+        "especialidad": "Nutrición"
+    },
+    {
+        "medico": "Dr. Andrés Fernández",
+        "fecha": "2025-09-03",
+        "hora": "11:00",
+        "especialidad": "Nutrición"
+    },
+    {
+        "medico": "Dra. Valeria Gómez",
+        "fecha": "2025-09-03",
+        "hora": "12:00",
+        "especialidad": "Nutrición"
+    },
+    {
+        "medico": "Dr. Hugo Díaz",
+        "fecha": "2025-09-02",
+        "hora": "09:00",
+        "especialidad": "Psicología"
+    },
+    {
+        "medico": "Dra. Silvia Ruiz",
+        "fecha": "2025-09-02",
+        "hora": "10:00",
+        "especialidad": "Psicología"
+    },
+    {
+        "medico": "Dr. Javier Gómez",
+        "fecha": "2025-09-03",
+        "hora": "11:00",
+        "especialidad": "Psicología"
+    },
+    {
+        "medico": "Dra. Claudia Fernández",
+        "fecha": "2025-09-03",
+        "hora": "12:00",
+        "especialidad": "Psicología"
+    }
+]

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <title>Gestión de Turnos</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
@@ -25,7 +26,7 @@
                 <label for="email" class="label">Correo electrónico</label>
                 <input type="email" id="email" name="email" placeholder="Ingrese un correo electrónico" class="input">
                 <div id="msjErrorEmail" class="msjError"></div>
-
+                
                 <label for="especialidad" class="label">Especialidades</label>
                 <select id="especialidad" name="especialidad" class="select">
                     <option value="" disabled selected>Seleccionar</option>
@@ -44,16 +45,26 @@
                 </select>
                 <div id="msjErrorEspecialidad" class="msjError"></div>
 
-                <button type="submit" id="btn" class="btn">Consultar</button>
+                <button type="submit" id="btn-consultar" class="btn">Consultar</button>
             </form>
         </section>
 
-        <section id="turnosDisponibles" class="turnos"></section>
+        <section id="turnos-disponibles" class="disable active">
+            <h2 class="title-turnos">Seleccionar</h2>
+            <table id="table" class="table"></table>
+        </section>
+
+        <section id="turnos-seleccionados" class="disable active">
+            <h2 class="title-turnos">Reserva de turnos</h2>
+        </section>
     </main>
 
     <footer>
-        <p>Proyecto Gestión de Turnos realizada por <a href="https://www.linkedin.com/in/facundo-d-addese-797b241aa/"
-                target="_blank">Facundo D'addese</a></p>
+        <p>Gestión de Turnos por
+            <a href="https://www.linkedin.com/in/facundo-d-addese-797b241aa/" target="_blank" rel="noopener noreferrer">
+                Facundo D&apos;addese
+            </a>
+        </p>
     </footer>
 
     <script src="js/index.js"></script>
