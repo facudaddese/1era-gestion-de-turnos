@@ -29,7 +29,8 @@ header h1 {
 
 /* FORMULARIO */
 
-.getTurn {
+.getTurno,
+.loggin {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
@@ -42,13 +43,15 @@ header h1 {
     margin: 0 auto;
 }
 
-.getTurn h2 {
+.getTurno h2 {
     font-weight: 500;
     color: #2c3e50;
     margin-bottom: 10px;
 }
 
-.form-flex {
+.form-flex,
+.registrarse,
+.iniciar-sesion {
     display: flex;
     flex-flow: column wrap;
     gap: 10px;
@@ -156,14 +159,14 @@ header h1 {
     border-radius: 15px;
 }
 
-.flex-item-especialidad{
+.flex-item-especialidad {
     display: flex;
     width: 250px;
     align-items: center;
     justify-content: center;
 }
 
-.flex-item-medico{
+.flex-item-medico {
     display: flex;
     width: 250px;
     align-items: center;

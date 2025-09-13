@@ -15,48 +15,89 @@
     </header>
 
     <main>
-        <section class="getTurn">
-            <h2>Solicitar turno</h2>
-
-            <form class="form-flex" id="form">
-                <label for="nombre" class="label">Nombre completo</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre completo" class="input">
-                <div id="msjErrorNombre" class="msjError"></div>
-
+        <div class="loggin" id="div-loggin">
+            <form class="iniciar-sesion" id="form-loggin">
                 <label for="email" class="label">Correo electrónico</label>
                 <input type="email" id="email" name="email" placeholder="Ingrese un correo electrónico" class="input">
-                <div id="msjErrorEmail" class="msjError"></div>
-                
-                <label for="especialidad" class="label">Especialidades</label>
-                <select id="especialidad" name="especialidad" class="select">
-                    <option value="" disabled selected>Seleccionar</option>
-                    <option value="Odontología">Odontología</option>
-                    <option value="Kinesiología">Kinesiología</option>
-                    <option value="Clínica médica">Clínica médica</option>
-                    <option value="Cardiología">Cardiología</option>
-                    <option value="Dermatología">Dermatología</option>
-                    <option value="Oftalmología">Oftalmología</option>
-                    <option value="Ginecología">Ginecología</option>
-                    <option value="Traumatología">Traumatología</option>
-                    <option value="Pediatría">Pediatría</option>
-                    <option value="Neurología">Neurología</option>
-                    <option value="Nutrición">Nutrición</option>
-                    <option value="Psicología">Psicología</option>
-                </select>
-                <div id="msjErrorEspecialidad" class="msjError"></div>
+                <div id="msjErrorLoggin" class="msjError"></div>
+                <label for="password" class="label">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" class="input">
+                <div id="msjErrorContraseña" class="msjError"></div>
 
-                <button type="submit" id="btn-consultar" class="btn">Consultar</button>
+                <button type="submit" id="btn-iniciar-sesion" class="btn">Iniciar sesion</button>
+                <button type="submit" id="btn-registrarse" class="btn">Registrarse</button>
             </form>
-        </section>
+        </div>
 
-        <section id="turnos-disponibles" class="disable active">
-            <h2 class="title-turnos">Seleccionar</h2>
-            <table id="table" class="table"></table>
-        </section>
+        <div class="disable" id="div-registrarse">
+            <form class="registrarse" id="form-registrarse">
+                <label for="nombre" class="label">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre completo" class="input">
+                <div id="msjErrorNombreRegistro" class="msjError"></div>
+                <label for="emailRegistro" class="label">Correo electrónico</label>
+                <input type="email" id="emailRegistro" name="emailRegistro" placeholder="Ingrese un correo electrónico" class="input">
+                <div id="msjErrorEmailRegistro" class="msjError"></div>
+                <label for="tel" class="label">Teléfono</label>
+                <input type="text" id="tel" name="tel" placeholder="Ingrese un teléfono" class="input">
+                <div id="msjErrorTel" class="msjError"></div>
+                <label for="claveRegistro" class="label">Contraseña</label>
+                <input type="password" id="claveRegistro" name="claveRegistro" placeholder="Ingrese su contraseña" class="input">
+                <div id="msjErrorClaveRegistro" class="msjError"></div>
 
-        <section id="turnos-seleccionados" class="disable active">
-            <h2 class="title-turnos">Reserva de turnos</h2>
-        </section>
+                <button type="submit" id="btn-registro" class="btn">Registrarse</button>
+            </form>
+        </div>
+
+        <div class="disable" id="consultar-turnos">
+            <section class="getTurno">
+                <h2>Solicitar turno</h2>
+
+                <form class="form-flex" id="form">
+                    <label for="nombreTurno" class="label">Nombre completo</label>
+                    <input type="text" id="nombreTurno" name="nombreTurno" placeholder="Ingrese su nombre completo" class="input">
+                    <div id="msjErrorNombre" class="msjError"></div>
+
+                    <label for="emailTurno" class="label">Correo electrónico</label>
+                    <input type="email" id="emailTurno" name="emailTurno" placeholder="Ingrese un correo electrónico"
+                        class="input">
+                    <div id="msjErrorEmail" class="msjError"></div>
+
+                    <label for="especialidad" class="label">Especialidades</label>
+                    <select id="especialidad" name="especialidad" class="select">
+                        <option value="" disabled selected>Seleccionar</option>
+                        <option value="Odontología">Odontología</option>
+                        <option value="Kinesiología">Kinesiología</option>
+                        <option value="Clínica médica">Clínica médica</option>
+                        <option value="Cardiología">Cardiología</option>
+                        <option value="Dermatología">Dermatología</option>
+                        <option value="Oftalmología">Oftalmología</option>
+                        <option value="Ginecología">Ginecología</option>
+                        <option value="Traumatología">Traumatología</option>
+                        <option value="Pediatría">Pediatría</option>
+                        <option value="Neurología">Neurología</option>
+                        <option value="Nutrición">Nutrición</option>
+                        <option value="Psicología">Psicología</option>
+                    </select>
+                    <div id="msjErrorEspecialidad" class="msjError"></div>
+
+                    <button type="submit" id="btn-consultar" class="btn">Consultar</button>
+                </form>
+            </section>
+
+            <section id="turnos-disponibles" class="disable active">
+                <h2 class="title-turnos">Seleccionar</h2>
+                <table id="table" class="table"></table>
+            </section>
+
+            <section id="turnos-seleccionados" class="disable active">
+                <h2 class="title-turnos">Reserva de turnos</h2>
+            </section>
+
+            <section id="msj-turnos" class="disable active">
+                <h2 id="title-msj-turnos" class="title-turnos">No se encontraron turnos disponibles. Si lo desea, vuelva
+                    a realizar la búsqueda.</h2>
+            </section>
+        </div>
     </main>
 
     <footer>
@@ -67,7 +108,7 @@
         </p>
     </footer>
 
-    <script src="js/index.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
