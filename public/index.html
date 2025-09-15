@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <title>Gestión de Turnos</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
@@ -12,6 +11,10 @@
 <body>
     <header>
         <h1>Gestión de turnos</h1>
+
+        <div id="span" class="span-container disable">
+            <span>Turnos reservados</span>
+        </div>
     </header>
 
     <main>
@@ -30,22 +33,27 @@
         </div>
 
         <div class="disable" id="div-registrarse">
-            <form class="registrarse" id="form-registrarse">
-                <label for="nombre" class="label">Nombre completo</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre completo" class="input">
+            <div class="registrarse" id="form-registrarse">
+                <label for="nombreRegistro" class="label">Nombre completo</label>
+                <input type="text" id="nombreRegistro" name="nombreRegistro" placeholder="Ingrese su nombre completo"
+                    class="input">
                 <div id="msjErrorNombreRegistro" class="msjError"></div>
                 <label for="emailRegistro" class="label">Correo electrónico</label>
-                <input type="email" id="emailRegistro" name="emailRegistro" placeholder="Ingrese un correo electrónico" class="input">
+                <input type="email" id="emailRegistro" name="emailRegistro" placeholder="Ingrese un correo electrónico"
+                    class="input">
                 <div id="msjErrorEmailRegistro" class="msjError"></div>
-                <label for="tel" class="label">Teléfono</label>
-                <input type="text" id="tel" name="tel" placeholder="Ingrese un teléfono" class="input">
+                <label for="telefonoRegistro" class="label">Teléfono</label>
+                <input type="text" id="telefonoRegistro" name="telefonoRegistro" placeholder="Ingrese un teléfono"
+                    class="input">
                 <div id="msjErrorTel" class="msjError"></div>
                 <label for="claveRegistro" class="label">Contraseña</label>
-                <input type="password" id="claveRegistro" name="claveRegistro" placeholder="Ingrese su contraseña" class="input">
+                <input type="password" id="claveRegistro" name="claveRegistro" placeholder="Cree su contraseña aquí"
+                    class="input">
                 <div id="msjErrorClaveRegistro" class="msjError"></div>
 
-                <button type="submit" id="btn-registro" class="btn">Registrarse</button>
-            </form>
+                <button type="button" id="btn-registro" class="btn">Registrarse</button>
+                <button type="button" class="btn btnIrAInicio">Ir al inicio</button>
+            </div>
         </div>
 
         <div class="disable" id="consultar-turnos">
@@ -53,15 +61,6 @@
                 <h2>Solicitar turno</h2>
 
                 <form class="form-flex" id="form">
-                    <label for="nombreTurno" class="label">Nombre completo</label>
-                    <input type="text" id="nombreTurno" name="nombreTurno" placeholder="Ingrese su nombre completo" class="input">
-                    <div id="msjErrorNombre" class="msjError"></div>
-
-                    <label for="emailTurno" class="label">Correo electrónico</label>
-                    <input type="email" id="emailTurno" name="emailTurno" placeholder="Ingrese un correo electrónico"
-                        class="input">
-                    <div id="msjErrorEmail" class="msjError"></div>
-
                     <label for="especialidad" class="label">Especialidades</label>
                     <select id="especialidad" name="especialidad" class="select">
                         <option value="" disabled selected>Seleccionar</option>
@@ -81,6 +80,7 @@
                     <div id="msjErrorEspecialidad" class="msjError"></div>
 
                     <button type="submit" id="btn-consultar" class="btn">Consultar</button>
+                    <button type="button" class="btn btnIrAInicio">Ir al inicio</button>
                 </form>
             </section>
 
@@ -100,7 +100,7 @@
         </div>
     </main>
 
-    <footer>
+    <footer id="footer" class="fixed">
         <p>Gestión de Turnos por
             <a href="https://www.linkedin.com/in/facundo-d-addese-797b241aa/" target="_blank" rel="noopener noreferrer">
                 Facundo D&apos;addese
@@ -108,6 +108,7 @@
         </p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/script.js"></script>
 </body>
 
