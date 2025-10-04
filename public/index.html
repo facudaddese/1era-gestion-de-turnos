@@ -8,14 +8,17 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 
-<body>
+<body id="body">
     <header>
         <h1>Gestión de turnos</h1>
 
-        <div id="span" class="span-container disable">
-            <span>Turnos reservados</span>
+        <div id="turnos-reservados" class="turnos-reservados-container disable">
+            <button id="btn-turnos-reservados">Turnos reservados</button>
         </div>
     </header>
+
+    <div id="overlay" class="overlay"></div>
+    <div id="modal" class="modal"></div>
 
     <main>
         <div class="loggin" id="div-loggin">

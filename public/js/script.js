@@ -28,7 +28,9 @@ const btnConsultar = document.getElementById("btn-consultar");
 
 const turnosDisponibles = document.getElementById("turnos-disponibles");
 const turnosSeleccionados = document.getElementById("turnos-seleccionados");
-const span = document.getElementById("span");
+const turnosReservados = document.getElementById("turnos-reservados");
+const btnTurnoReservados = document.getElementById("btn-turnos-reservados");
+const modal = document.getElementById("modal");
 const table = document.getElementById("table");
 const tBody = document.createElement("tbody");
 const msjTurnos = document.getElementById("msj-turnos");
@@ -97,8 +99,8 @@ btnIniciarSesion.addEventListener("click", async (event) => {
         const respuesta = await res.json();
         if (respuesta.ok) {
             Swal.fire({
-                title: `Bienvenido, ${respuesta.usuario.nombre}`,
-                text: "Gestione sus turnos de manera online",
+                title: "Inicio de sesion exitoso",
+                text: `${respuesta.usuario.nombre}, gestione sus turnos de manera online`,
                 icon: "success",
                 showConfirmButton: false,
                 timer: 3000
@@ -110,7 +112,7 @@ btnIniciarSesion.addEventListener("click", async (event) => {
         } else {
             Swal.fire({
                 title: "Error",
-                text: respuesta.mensaje || "Email y/o contraseña incorrecta",
+                text: respuesta.mensaje,
                 icon: "warning"
             });
             return;
@@ -152,6 +154,8 @@ btnIrAlInicio.forEach(btn => {
         footer.classList.add("fixed");
         msjTurnos.classList.remove("active");
         msjTurnos.classList.add("disable");
+        turnosReservados.classList.add("disable");
+        turnosSeleccionados.classList.add("disable");
     })
 });
 
@@ -224,12 +228,14 @@ btnRegistro.addEventListener("click", async (event) => {
                 emailRegistro.value = "";
                 telefonoRegistro.value = "";
                 claveRegistro.value = "";
+                footer.classList.remove("static");
+                footer.classList.add("fixed");
             });
         } else {
             Swal.fire({
                 icon: "error",
                 title: "Error",
-                text: respuesta.mensaje || "Ocurrió un error inesperado",
+                text: respuesta.mensaje,
                 confirmButtonText: "Aceptar"
             });
         }
@@ -263,15 +269,17 @@ btnConsultar.addEventListener("click", async (event) => {
     }
 
     try {
-        const res = await fetch("http://localhost:3000/api/reservas");
-        const reservas = await res.json();
+        const res = await fetch("js/turnos.json");
+        const turnos = await res.json();
 
-        const reservasFiltradas = reservas.filter(r =>
-            r.especialidad.toLowerCase() === datos.especialidad.toLowerCase()
+        const turnosFiltrados = turnos.filter(t =>
+            t.especialidad.toLowerCase() === datos.especialidad.trim().toLowerCase()
         );
 
-        if (reservasFiltradas.length > 0) {
-            tablaTurnos(reservasFiltradas);
+        if (turnosFiltrados.length > 0) {
+            tablaTurnos(turnosFiltrados);
+            footer.classList.remove("fixed");
+            footer.classList.add("static");
         } else {
             Swal.fire({
                 icon: "info",
@@ -290,39 +298,29 @@ btnConsultar.addEventListener("click", async (event) => {
     }
 });
 
-async function tablaTurnos(datos) {
+async function tablaTurnos(turnosFiltrados) {
 
     msjTurnos.classList.add("disable");
     tBody.innerHTML = "";
 
-    try {
-        const res = await fetch("js/turnos.json")
-        const turnos = await res.json();
+    for (const turno of turnosFiltrados) {
 
-        for (const turno of turnos) {
-            if (datos.especialidad === turno.especialidad) {
+        const fila = document.createElement("tr");
 
-                const fila = document.createElement("tr");
-
-                fila.innerHTML =
-                    `
-                        <td>${turno.medico}</td>
-                        <td>${turno.fecha}</td>
-                        <td>${turno.hora}</td>
-                        <td>${turno.especialidad}</td>
-                    `
-                agregarFilas(fila);
-                tBody.appendChild(fila);
-            }
-        }
-
-        table.appendChild(tBody);
-        turnosDisponibles.classList.remove("disable");
-        turnosDisponibles.classList.add("active");
-
-    } catch (error) {
-        console.error(err.message);
+        fila.innerHTML =
+            `
+                <td>${turno.medico}</td>
+                <td>${turno.fecha}</td>
+                <td>${turno.hora}</td>
+                <td>${turno.especialidad}</td>
+            `
+        agregarFilas(fila);
+        tBody.appendChild(fila);
     }
+
+    table.appendChild(tBody);
+    turnosDisponibles.classList.remove("disable");
+    turnosDisponibles.classList.add("active");
 }
 
 function agregarFilas(fila) {
@@ -339,14 +337,14 @@ function agregarFilas(fila) {
                 <div class="flex-container">
                     <div class="flex-item-especialidad">
                         <div>
-                            <h3 id="especialidadTurno" class="title-especificaciones especialidad">${fila.cells[3].textContent}</h3>
+                            <h3 class="title-especificaciones especialidad">${fila.cells[3].textContent}</h3>
                         </div>
                     </div>
                     <div class="flex-item-medico">
                         <div>
-                            <h4 id="medicoTurno" class="title-especificaciones medico">${fila.cells[0].textContent}</h4>
-                            <h4 id="fechaTurno" class="title-especificaciones fecha">${fila.cells[1].textContent}</h4>
-                            <h4 id="hsTurno" class="title-especificaciones hs">${fila.cells[2].textContent}</h4>
+                            <h4 class="title-especificaciones medico">${fila.cells[0].textContent}</h4>
+                            <h4 class="title-especificaciones fecha">${fila.cells[1].textContent}</h4>
+                            <h4 class="title-especificaciones hs">${fila.cells[2].textContent}</h4>
                         </div>
                     </div>
                     <div class="turnos-btn">
@@ -411,13 +409,6 @@ function eliminarTurno() {
                     if (document.querySelectorAll(".flex-container").length === 0) {
                         turnosSeleccionados.classList.add("disable");
                     }
-
-                    Swal.fire({
-                        title: "Turno eliminado de la reserva",
-                        icon: "success",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
                 }
             });
         })
@@ -426,14 +417,30 @@ function eliminarTurno() {
 
 let banderaAux = true;
 let hayTurnos = false;
+let arrayTurnos = [];
+
+turnosReservados.addEventListener("click", () => {
+    modal.classList.add("active");
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("body").style.overflow = "hidden";
+    detalleTurnos();
+});
+
+document.getElementById("overlay").addEventListener("click", (event) => {
+    if (event.target === event.currentTarget) {
+        modal.classList.remove("active");
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("body").style.overflow = "auto";
+    }
+});
+
 function reservarTurno() {
     document.querySelectorAll(".turnos-btn .btn-reservar").forEach(btn => {
         btn.addEventListener("click", async () => {
             const turnoReservado = btn.closest(".flex-container");
-
             const medico = turnoReservado.querySelector(".medico").textContent;
             const fecha = turnoReservado.querySelector(".fecha").textContent;
-            const hs = turnoReservado.querySelector(".hora").textContent;
+            const hs = turnoReservado.querySelector(".hs").textContent;
             const especialidad = turnoReservado.querySelector(".especialidad").textContent;
             const paciente = nombreReserva;
             const email = emailReserva;
@@ -444,36 +451,40 @@ function reservarTurno() {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ medico, fecha, hs, especialidad, paciente, email })
                 });
-
                 const respuesta = await res.json();
+
                 if (respuesta.ok) {
-                    await Swal.fire({
-                        title: "Turno reservado con éxito!",
-                        icon: "success",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-
-                    hayTurnos = true;
-                    turnoReservado.remove();
-
-                    if ((document.querySelectorAll(".flex-container").length === 1) && banderaAux) {
-                        turnosSeleccionados.classList.remove("active");
-                        turnosSeleccionados.classList.add("disable");
-                        banderaAux = false;
-                    }
-
-                    if ((tBody.querySelectorAll("tr").length === 0) && (document.querySelectorAll(".flex-container").length === 1)) {
-                        msjTurnos.classList.remove("disable");
-                        msjTurnos.classList.add("active");
-                    }
-
-                } else {
                     Swal.fire({
-                        icon: "error",
-                        title: "Error",
-                        text: respuesta.mensaje || "No se pudo reservar el turno",
-                        confirmButtonText: "Aceptar"
+                        title: "Desea confirmar su turno?",
+                        text: `Recuerde que podrá visualizarlo desde la sección "Turnos reservados"`,
+                        icon: "question"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            arrayTurnos.push({ paciente, email, medico, fecha, hs, especialidad });
+
+                            Swal.fire({
+                                title: "Turno reservado con éxito!",
+                                icon: "success",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+
+                            hayTurnos = true;
+
+                            if ((document.querySelectorAll(".flex-container").length === 1) && banderaAux) {
+                                turnosSeleccionados.classList.remove("active");
+                                turnosSeleccionados.classList.add("disable");
+                                banderaAux = false;
+                            }
+
+                            turnosReservados.classList.remove("disable");
+
+                            if ((tBody.querySelectorAll("tr").length === 0) && (document.querySelectorAll(".flex-container").length === 1)) {
+                                msjTurnos.classList.remove("disable");
+                                msjTurnos.classList.add("active");
+                            }
+                            turnoReservado.remove();
+                        }
                     });
                 }
             } catch (error) {
@@ -485,5 +496,25 @@ function reservarTurno() {
                 });
             }
         });
+    });
+}
+
+const detalleTurnos = () => {
+    modal.innerHTML = `<h3>Detalles del turno</h3>`
+
+    arrayTurnos.forEach(turno => {
+        modal.classList.add("detalle-turnos");
+        modal.innerHTML +=
+            `
+                <div>
+                    <p><strong style="padding: 4px;">👤 Paciente:</strong> ${turno.paciente}</p>
+                    <p><strong style="padding: 4px;">📧 Correo electrónico:</strong> ${turno.email}</p>
+                    <p><strong style="padding: 4px;">👨‍⚕️ Médico:</strong> ${turno.medico}</p>
+                    <p><strong style="padding: 4px;">📅 Fecha:</strong> ${turno.fecha}</p>
+                    <p><strong style="padding: 4px;">⏰ Hora:</strong> ${turno.hs}</p>
+                    <p><strong style="padding: 4px;">🏥 Especialidad:</strong> ${turno.especialidad}</p>
+                </div>
+                <hr class="hr">
+            `
     });
 }

@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, "public")));
 const usuariosPath = path.join(__dirname, "usuarios.json");
 const reservasPath = path.join(__dirname, "reservas.json");
 
-// Función para leer JSON, si no existe retorna array vacío
+// Función para leer JSON, si no existe retorna [ ]
 function leerJSON(ruta) {
     if (fs.existsSync(ruta)) {
         return JSON.parse(fs.readFileSync(ruta, "utf-8"));
@@ -60,10 +60,10 @@ app.post("/api/usuarios/login", (req, res) => {
 
     const usuarios = leerJSON(usuariosPath);
 
-    // Aquí usamos los mismos nombres que guardamos
+    // Usamos los mismos nombres que guardamos
     const usuario = usuarios.find(u => u.emailRegistro.toLowerCase() === email.toLowerCase() && u.claveRegistro === password);
     if (!usuario) {
-        return res.status(401).json({ mensaje: "Credenciales incorrectas" });
+        return res.status(401).json({ mensaje: "Email y/o clave incorrecta" });
     }
 
     res.json({ ok: true, mensaje: "Login exitoso", usuario: { nombre: usuario.nombreRegistro, email: usuario.emailRegistro } });
@@ -75,7 +75,7 @@ app.get("/api/reservas", (req, res) => {
     res.json(reservas);
 });
 
-// Crear reserva
+// Crear reserva    
 app.post("/api/reservas", (req, res) => {
     const { medico, fecha, hs, especialidad, paciente, email } = req.body;
 

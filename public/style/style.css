@@ -3,9 +3,9 @@
 /* -------------------  */
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /* -------------------  */
@@ -34,18 +34,69 @@ h1 {
     padding: 25px;
 }
 
-.span-container span {
+.turnos-reservados-container button {
     position: absolute;
     right: 20px;
     top: 0;
     font-weight: bold;
     text-align: center;
-    padding: 25px;
-    color: #3498db;
+    padding: 10px;
+    margin-top: 10px;
+    background: #3498db;
+    color: rgb(252, 252, 252);
+    border: none;
+    border-bottom: 3px solid #00548c;
+    cursor: pointer;
 }
 
-.span-container span:hover {
-    cursor: pointer;
+.turnos-reservados-container :hover {
+    background: #00548c;
+    border-bottom: 3px solid #3498db;
+}
+
+/* MODAL PARA VER TURNOS RESERVADOS  */
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: 33vw;
+    height: 100vh;
+    background: #fff;
+    border-left: 1px solid black;
+    transform: translateX(100%);
+    transition: transform 1s ease-in-out;
+    z-index: 200;
+    overflow-y: auto;
+}
+
+.modal.active {
+    transform: translateX(0);
+    margin: 0;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 100;
+}
+
+.detalle-turnos {
+    display: flex;
+    padding: 7px;
+    gap: 15px;
+}
+
+.hr {
+    border-bottom: 1px solid black;
+    width: 90%;
 }
 
 /* -------------------  */
@@ -121,9 +172,8 @@ h1 {
 
 .active {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-flow: column wrap;
+    flex-direction: column;
     margin-top: 50px;
 }
 
