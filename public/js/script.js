@@ -406,7 +406,8 @@ function eliminarTurno() {
                     turnosDisponibles.classList.remove("disable");
                     turnosDisponibles.classList.add("active");
 
-                    if (document.querySelectorAll(".flex-container").length === 0) {
+                    if (turnosSeleccionados.querySelectorAll(".flex-container").length === 0) {
+                        turnosSeleccionados.classList.remove("active");
                         turnosSeleccionados.classList.add("disable");
                     }
                 }
@@ -414,10 +415,6 @@ function eliminarTurno() {
         })
     });;
 }
-
-let banderaAux = true;
-let hayTurnos = false;
-let arrayTurnos = [];
 
 turnosReservados.addEventListener("click", () => {
     modal.classList.add("active");
@@ -434,6 +431,8 @@ document.getElementById("overlay").addEventListener("click", (event) => {
     }
 });
 
+let hayTurnos = false;
+let arrayTurnos = [];
 function reservarTurno() {
     document.querySelectorAll(".turnos-btn .btn-reservar").forEach(btn => {
         btn.addEventListener("click", async () => {
@@ -471,10 +470,11 @@ function reservarTurno() {
 
                             hayTurnos = true;
 
-                            if ((document.querySelectorAll(".flex-container").length === 1) && banderaAux) {
+                            let banderaAux = false;
+                            if ((document.querySelectorAll(".flex-container").length === 1) && !banderaAux) {
                                 turnosSeleccionados.classList.remove("active");
                                 turnosSeleccionados.classList.add("disable");
-                                banderaAux = false;
+                                banderaAux = true;
                             }
 
                             turnosReservados.classList.remove("disable");
@@ -500,19 +500,19 @@ function reservarTurno() {
 }
 
 const detalleTurnos = () => {
-    modal.innerHTML = `<h3>Detalles del turno</h3>`
+    modal.innerHTML = `<h3 style="padding-top: 10px;">Detalles del turno</h3>`
 
     arrayTurnos.forEach(turno => {
         modal.classList.add("detalle-turnos");
         modal.innerHTML +=
             `
                 <div>
-                    <p><strong style="padding: 4px;">👤 Paciente:</strong> ${turno.paciente}</p>
-                    <p><strong style="padding: 4px;">📧 Correo electrónico:</strong> ${turno.email}</p>
-                    <p><strong style="padding: 4px;">👨‍⚕️ Médico:</strong> ${turno.medico}</p>
-                    <p><strong style="padding: 4px;">📅 Fecha:</strong> ${turno.fecha}</p>
-                    <p><strong style="padding: 4px;">⏰ Hora:</strong> ${turno.hs}</p>
-                    <p><strong style="padding: 4px;">🏥 Especialidad:</strong> ${turno.especialidad}</p>
+                    <p><strong>👤 Paciente:</strong> ${turno.paciente}</p>
+                    <p><strong>📧 Correo electrónico:</strong> ${turno.email}</p>
+                    <p><strong>👨‍⚕️ Médico:</strong> ${turno.medico}</p>
+                    <p><strong>📅 Fecha:</strong> ${turno.fecha}</p>
+                    <p><strong>⏰ Hora:</strong> ${turno.hs}</p>
+                    <p><strong>🏥 Especialidad:</strong> ${turno.especialidad}</p>
                 </div>
                 <hr class="hr">
             `
