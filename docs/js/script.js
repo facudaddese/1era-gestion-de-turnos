@@ -468,8 +468,8 @@ function reservarTurno() {
                                 timer: 1500
                             });
 
-                            turnoReservado.remove();
                             turnosReservados.classList.remove("disable");
+                            turnoReservado.remove();
                             hayTurnos = true;
 
                             let banderaAux = false;
@@ -478,8 +478,6 @@ function reservarTurno() {
                                 turnosSeleccionados.classList.add("disable");
                                 banderaAux = true;
                             }
-
-                            turnosReservados.classList.remove("disable");
 
                             if ((tBody.querySelectorAll("tr").length === 0) && (document.querySelectorAll(".flex-container").length === 1)) {
                                 msjTurnos.classList.remove("disable");
@@ -500,37 +498,22 @@ function reservarTurno() {
     });
 }
 
-const detalleTurnos = async () => {
+const detalleTurnos = () => {
     modal.innerHTML = `<h3 style="padding-top: 10px;">Detalles del turno</h3>`
 
-    try {
-        const res = await fetch(`http://localhost:3000/api/reservas`);
-        const todasReservas = await res.json();
-
-        const misReservas = todasReservas.filter(turno => turno.email === emailReserva);
-
-        misReservas.forEach(turno => {
-            modal.classList.add("detalle-turnos");
-            modal.innerHTML +=
-                `
-                    <div>
-                        <p><strong>👤 Paciente:</strong> ${turno.paciente}</p>
-                        <p><strong>📧 Correo electrónico:</strong> ${turno.email}</p>
-                        <p><strong>👨‍⚕️ Médico:</strong> ${turno.medico}</p>
-                        <p><strong>📅 Fecha:</strong> ${turno.fecha}</p>
-                        <p><strong>⏰ Hora:</strong> ${turno.hs}</p>
-                        <p><strong>🏥 Especialidad:</strong> ${turno.especialidad}</p>
-                    </div>
-                    <hr class="hr">
-                `
-        });
-    } catch (error) {
-        console.error("Error al obtener reservas:", error);
-        Swal.fire({
-            icon: "error",
-            title: "Error",
-            text: "No se pudo conectar con el servidor",
-            confirmButtonText: "Aceptar"
-        });
-    }
+    arrayTurnos.forEach(turno => {
+        modal.classList.add("detalle-turnos");
+        modal.innerHTML +=
+            `
+                <div>
+                    <p><strong>👤 Paciente:</strong> ${turno.paciente}</p>
+                    <p><strong>📧 Correo electrónico:</strong> ${turno.email}</p>
+                    <p><strong>👨‍⚕️ Médico:</strong> ${turno.medico}</p>
+                    <p><strong>📅 Fecha:</strong> ${turno.fecha}</p>
+                    <p><strong>⏰ Hora:</strong> ${turno.hs}</p>
+                    <p><strong>🏥 Especialidad:</strong> ${turno.especialidad}</p>
+                </div>
+                <hr class="hr">
+            `
+    });
 }
