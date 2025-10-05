@@ -87,7 +87,7 @@ btnIniciarSesion.addEventListener("click", async (event) => {
     }
 
     try {
-        const res = await fetch("http://localhost:3000/api/usuarios/login", {
+        const res = await fetch("https://gestion-de-turnos.up.railway.app/api/usuarios/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -204,7 +204,7 @@ btnRegistro.addEventListener("click", async (event) => {
     }
 
     try {
-        const res = await fetch("http://localhost:3000/api/usuarios/registro", {
+        const res = await fetch("https://gestion-de-turnos.up.railway.app/api/usuarios/registro", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -445,7 +445,7 @@ function reservarTurno() {
             const email = emailReserva;
 
             try {
-                const res = await fetch("http://localhost:3000/api/reservas", {
+                const res = await fetch("https://gestion-de-turnos.up.railway.app/api/reservas", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ medico, fecha, hs, especialidad, paciente, email })
