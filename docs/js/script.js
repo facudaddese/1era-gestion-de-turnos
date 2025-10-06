@@ -469,8 +469,8 @@ function reservarTurno() {
                             });
 
                             turnosReservados.classList.remove("disable");
-                            turnoReservado.remove();
                             hayTurnos = true;
+                            turnoReservado.remove();
 
                             let banderaAux = false;
                             if ((document.querySelectorAll(".flex-container").length === 1) && !banderaAux) {

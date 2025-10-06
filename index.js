@@ -107,5 +107,5 @@ app.delete("/api/reservas/:id", (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en ${PORT}`);
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
