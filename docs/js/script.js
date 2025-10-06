@@ -468,7 +468,9 @@ function reservarTurno() {
                                 timer: 1500
                             });
 
+                            turnosReservados.classList.remove("disable");
                             hayTurnos = true;
+                            turnoReservado.remove();
 
                             let banderaAux = false;
                             if ((document.querySelectorAll(".flex-container").length === 1) && !banderaAux) {
@@ -477,13 +479,10 @@ function reservarTurno() {
                                 banderaAux = true;
                             }
 
-                            turnosReservados.classList.remove("disable");
-
-                            if ((tBody.querySelectorAll("tr").length === 0) && (document.querySelectorAll(".flex-container").length === 1)) {
+                            if ((tBody.querySelectorAll("tr").length === 0) && (document.querySelectorAll(".flex-container").length === 0)) {
                                 msjTurnos.classList.remove("disable");
                                 msjTurnos.classList.add("active");
                             }
-                            turnoReservado.remove();
                         }
                     });
                 }
